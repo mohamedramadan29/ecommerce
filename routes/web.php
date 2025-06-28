@@ -59,8 +59,9 @@ Route::group([
     ############# Start Products ##########
 
     Route::prefix('products')->name('product.')->controller(ProductController::class)->group(function(){
-
-        Route::get('/{slug}','showProduct')->name('show');
+        Route::get('/{type}','getProductsByType')->name('by.type');
+        Route::get('show/{slug}','showProductPage')->name('show');
+        Route::get('/{slug}/related-products','relatedProducts')->name('related');
     });
 
     ############ End Products ###########
